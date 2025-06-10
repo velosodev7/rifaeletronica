@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rifa Eletrônica</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎉 Rifa Eletrônica 🎉</h1>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="draw">Sorteio</div>
+        <div class="tab" data-tab="add">Adicionar Participante</div>
+      </div>
+
+      <div class="tab-content active" id="draw-tab">
+        <div class="result-container">
+          <div class="result-item">
+            <span class="result-label">Nome do Ganhador:</span>
+            <span class="result-value" id="winner-name">-</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">E-mail:</span>
+            <span class="result-value" id="winner-email">-</span>
+          </div>
+        </div>
+
+        <button class="btn" id="draw-button">Sortear</button>
+        <button class="btn btn-reset" id="reset-button">
+          Reiniciar Sorteios
+        </button>
+
+        <div class="participants-list">
+          <h3>Participantes: <span id="remaining-count"></span></h3>
+          <ul id="participants-list"></ul>
+        </div>
+      </div>
+
+      <div class="tab-content" id="add-tab">
+        <form id="add-participant-form">
+          <div class="form-group">
+            <label for="name">Nome completo:</label>
+            <input type="text" id="name" required />
+            <div class="error-message" id="name-error">
+              Por favor, insira um nome válido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required />
+            <div class="error-message" id="email-error">
+              Por favor, insira um e-mail válido
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Adicionar Participante</button>
+        </form>
+
+        <div class="participants-list" style="margin-top: 30px">
+          <h3>Todos os Participantes:</h3>
+          <ul id="all-participants-list"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
