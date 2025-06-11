@@ -8,60 +8,93 @@
   </head>
   <body>
     <div class="container">
-      <h1>🎉 Rifa Eletrônica 🎉</h1>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i class="fas fa-trophy"></i> Sorteio Atual
+          </h2>
+          <span class="text-muted" id="remaining-count">0 participantes</span>
+        </div>
 
-      <div class="tabs">
-        <div class="tab active" data-tab="draw">Sorteio</div>
-        <div class="tab" data-tab="add">Adicionar Participante</div>
-      </div>
-
-      <div class="tab-content active" id="draw-tab">
         <div class="result-container">
           <div class="result-item">
-            <span class="result-label">Nome do Ganhador:</span>
-            <span class="result-value" id="winner-name">-</span>
+            <div class="result-label">GANHADOR</div>
+            <div class="result-value" id="winner-name">-</div>
           </div>
           <div class="result-item">
-            <span class="result-label">E-mail:</span>
-            <span class="result-value" id="winner-email">-</span>
+            <div class="result-label">E-MAIL</div>
+            <div class="result-value" id="winner-email">-</div>
           </div>
         </div>
 
-        <button class="btn" id="draw-button">Sortear</button>
-        <button class="btn btn-reset" id="reset-button">
-          Reiniciar Sorteios
-        </button>
-
-        <div class="participants-list">
-          <h3>Participantes: <span id="remaining-count"></span></h3>
-          <ul id="participants-list"></ul>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-value" id="total-count">0</div>
+            <div class="stat-label">Total</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="available-count">0</div>
+            <div class="stat-label">Disponíveis</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="winners-count">0</div>
+            <div class="stat-label">Ganhadores</div>
+          </div>
         </div>
+
+        <button class="btn btn-primary" id="draw-button" style="width: 100%">
+          <i class="fas fa-random"></i> Sortear Agora
+        </button>
+        <button
+          class="btn btn-outline"
+          id="reset-button"
+          style="width: 100%; margin-top: 0.75rem"
+        >
+          <i class="fas fa-redo"></i> Reiniciar Sorteios
+        </button>
       </div>
 
-      <div class="tab-content" id="add-tab">
-        <form id="add-participant-form">
-          <div class="form-group">
-            <label for="name">Nome completo:</label>
-            <input type="text" id="name" required />
-            <div class="error-message" id="name-error">
-              Por favor, insira um nome válido
+      <div class="card">
+        <div class="tabs">
+          <div class="tab active" data-tab="participants">Participantes</div>
+          <div class="tab" data-tab="add">Adicionar</div>
+          <div class="tab" data-tab="winners">Ganhadores</div>
+        </div>
+
+        <div class="tab-content active" id="participants-tab">
+          <div class="participants-list" id="participants-list"></div>
+        </div>
+
+        <div class="tab-content" id="add-tab">
+          <form id="add-participant-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Nome Completo</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Digite o nome completo"
+                required
+              />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" required />
-            <div class="error-message" id="email-error">
-              Por favor, insira um e-mail válido
+            <div class="form-group">
+              <label for="email" class="form-label">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Digite o e-mail válido"
+                required
+              />
             </div>
-          </div>
+            <button type="submit" class="btn btn-secondary" style="width: 100%">
+              <i class="fas fa-plus-circle"></i> Adicionar Participante
+            </button>
+          </form>
+        </div>
 
-          <button type="submit" class="btn">Adicionar Participante</button>
-        </form>
-
-        <div class="participants-list" style="margin-top: 30px">
-          <h3>Todos os Participantes:</h3>
-          <ul id="all-participants-list"></ul>
+        <div class="tab-content" id="winners-tab">
+          <div class="participants-list" id="winners-list"></div>
         </div>
       </div>
     </div>
